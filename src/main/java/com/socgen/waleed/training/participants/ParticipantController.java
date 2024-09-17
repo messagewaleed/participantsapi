@@ -2,6 +2,9 @@ package com.socgen.waleed.training.participants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Optional;
+
+import com.socgen.waleed.training.participants.Participant;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.socgen.waleed.training.Participant;
+//import com.socgen.waleed.training.Participant;
 
 @RestController
 public class ParticipantController {
@@ -20,20 +23,20 @@ public class ParticipantController {
 	@Autowired //DI
 	ParticipantService service;
 	
-	@GetMapping("/count")
-	Integer getCountOfLearners() {
-		return service.getCountOfLearners();
-	}
+//	@GetMapping("/count")
+//	Integer getCountOfLearners() {
+//		return service.getCountOfLearners();
+//	}
 	
 	
 	
 	@GetMapping("/participants")
-	ArrayList<Participant> getAllParticipants() {
+	Iterable<com.socgen.waleed.training.participants.Participant> getAllParticipants() {
 		return service.getAllParticipants();
 	}
 	
 	@GetMapping("/participants/{id}")
-	Participant getParticipantById(@PathVariable Integer id) {
+	Optional<com.socgen.waleed.training.participants.Participant> getParticipantById(@PathVariable Integer id) {
 		return service.getParticipantById(id);
 	}
 	
@@ -43,8 +46,8 @@ public class ParticipantController {
 	}
 	
 	@PutMapping("/participants/{id}")
-	void  updateParticipantById(@PathVariable Integer id, @RequestBody Participant participant) {
-		service.updateParticipantById(id, participant);
+	void  updateParticipantById(Integer id, @RequestBody Participant participant) {
+		service.updateParticipantById(participant);
 	}
 	
 	@DeleteMapping("/participants/{id}")
