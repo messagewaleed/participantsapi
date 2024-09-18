@@ -1,5 +1,7 @@
 package com.socgen.waleed.training.participants;
 
+import com.socgen.waleed.training.places.Place;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +20,8 @@ public class Participant {
 	//	@Column("userName")
 	String name;
 	
-	String skills;
+	String skills;	
+	
 	
 	public Participant() {
 		// TODO Auto-generated constructor stub
@@ -32,9 +35,14 @@ public class Participant {
 
 
 	public Participant(String name, String skills) {
-		super();
 		this.name = name;
 		this.skills = skills;
+	}
+	
+	public Participant(Integer id, String name, String skills) {
+		this.name = name;
+		this.skills = skills;
+		this.id = id;
 	}
 
 	public Integer getId() {

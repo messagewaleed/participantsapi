@@ -78,9 +78,14 @@ public class ParticipantController {
 
 
 
+//	JPA Relationships
+//		- OneToOne
+//		- OneToMany
+//		- ManyToOne
+//		- ManyToMany
 
 
-
+	
 
 
 
