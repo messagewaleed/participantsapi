@@ -1,10 +1,21 @@
 package com.socgen.waleed.training.participants;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ParticipantRepository extends CrudRepository<Participant, Integer> {
+	
+//	@Query("select name from participants where name in(select name from users)")
+//	List<Participant> getJoinedData();
+	
+	List<Participant> findByName(String name);
+	
+	
+	
 	
 }
 

@@ -2,6 +2,7 @@ package com.socgen.waleed.training.participants;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,11 @@ public class ParticipantService {
 	
 	void deleteParticipantById(Integer id) {
 		repository.deleteById(id);
+	}
+	
+	
+	List<Participant> getParticipantByName(String name) {
+		return repository.findByName(name);
 	}
 	
 	
